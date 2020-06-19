@@ -57,7 +57,7 @@ app.get('/weather', (req,res) => {
                 error
             })
         }
-        forecast(lat,long,(error,{weather,weatherDescription,currentTemperature} = {}) => {
+        forecast(lat,long,(error,{weather,weatherDescription,currentTemperature, localtime} = {}) => {
             if (error) {
                 return res.send({
                     error
@@ -68,7 +68,8 @@ app.get('/weather', (req,res) => {
                 description: weatherDescription,
                 temperature: currentTemperature,
                 forecast: weather,
-                address: req.query.address
+                address: req.query.address,
+                localtime
             })
         })
     })

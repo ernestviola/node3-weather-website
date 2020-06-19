@@ -24,8 +24,9 @@ weatherForm.addEventListener('submit', (event) => {
             if (data.error) {
                 messageOne.textContent = data.error
             } else {
+                const date = new Date(data.localtime)
                 messageOne.textContent = data.location
-                messageTwo.textContent = data.forecast
+                messageTwo.textContent = "The local time is " +  date.toLocaleTimeString('en-US') + ". Today is " + data.forecast
             }
         })
     })
